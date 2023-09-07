@@ -54,6 +54,6 @@ class ShowQueryResultView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		#queryset = self.get_filter_queryset()
+		queryset = self.get_filter_queryset()
 		context['result'] = self.get_filter_queryset()
 		return context
