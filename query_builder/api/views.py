@@ -8,7 +8,7 @@ import json
 class ListCompanyDataView(APIView):
 	def get(self, request):
 		bytes_literal = request.body
-
+		print(len(bytes_literal.decode('utf-8')))
 		if len(bytes_literal.decode('utf-8')) == 0:
 			return Response({
 				'error': 'Please provide filters for querying data',
@@ -23,13 +23,16 @@ class ListCompanyDataView(APIView):
 
 		if year_founded:
 			queryset = queryset.filter(year_founded=int(year_founded))
+			filters.pop('year_founded')
 
 		city, state = filters.get('city'), filters.get('state')
 
 		if city:
 			queryset = queryset.filter(locality__icontains=city.lower())
+			filters.pop('city')
 		if state:
 			queryset = queryset.filter(locality__icontains=state.lower())
+			filters.pop('state')
 
 		filters = {
 			key:value.lower() for key,value in

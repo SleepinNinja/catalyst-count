@@ -19,14 +19,6 @@ def upload_to_db(file_path):
             for row in reader:
                 company_data = {data_fields[i]: row[i + 1] for i in range(len(data_fields))}
 
-                if len(company_data.get('locality').strip()) > 0:
-                    location_info = company_data.get('locality').split(',')
-                    city, state = location_info[0].strip(), location_info[1].strip()
-                    if city:
-                        redis.sadd('city', city)
-                    if state:
-                        redis.sadd('state', state)
-
                 if len(company_data.get('industry').strip()) > 0:
                     redis.sadd('industry', company_data.get('industry'))
 
