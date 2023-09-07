@@ -1,5 +1,16 @@
 # catalyst-count
 
+For running the project.
+1. Create a virtual environment and activate it.
+2. Install all the dependencies using pip install -r requirements.txt
+3. Create a .env file inside the main project app i.e catalyst_count.
+4. Inside .env file Provide django SECRET_KEY, and NAME, USER, PASSWORD, HOST and PORT for postgres.
+5. Make migrations using commands:
+  a. python manage.py makemigrations
+  b. python manage.py migrate
+7. Finally run the project using command python manage.py runserver.
+
+
 API 
 The url for getting the filtered company data is http://127.0.0.1:8000/api/query_builder/,
 This API only accepts GET request, we need to send filters in request body in json format as shown below.
@@ -21,5 +32,4 @@ On a successfully request call number of matches, and serialized matching result
 
 If we don't pass any filter then status code 400 is returned.
 ![image](https://github.com/SleepinNinja/catalyst-count/assets/88624644/6892a503-4791-47d0-9795-d9ab8735f82d)
-
 
