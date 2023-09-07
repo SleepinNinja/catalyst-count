@@ -3,6 +3,7 @@
 API 
 The url for getting the filtered company data is http://127.0.0.1:8000/api/query_builder/,
 This API only accepts GET request, we need to send filters in request body in json format as shown below.
+
 ![image](https://github.com/SleepinNinja/catalyst-count/assets/88624644/77bc3cd8-123c-41f1-8589-653efdd287d2)
 
 The list of filters are:
