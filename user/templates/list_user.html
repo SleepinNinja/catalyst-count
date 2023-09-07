@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+Users
+{% endblock title %}
+{% block content %}
+{% include 'components/navbar.html' %}
+<div class="d-flex justify-content-between">
+      <div class="m-5">
+        <a class="btn btn-success btn btn-lg" href="{% url 'user:create_user' %}">Add User</a>
+      </div>
+ </div>
+<table class="table">
+  <tbody>
+  	{% for user in user_list%}
+    <tr>
+      <td>{{ user.first_name|title }} {% if user.last_name %} {{ user.last_name|title }} {% else %} {% endif %}</td>
+      <td>{{ user.email }}</td>
+      {% if user.is_active %}
+      <td>Active</td>
+      {% else %}
+      <td>Not Active</td>
+      {% endif %}
+      <td><a class="btn btn-danger btn-sm" href="{% url 'user:delete_user' pk=user.uuid %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

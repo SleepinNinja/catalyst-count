@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+{% block title %}
+Query Builder
+{% endblock title %}
+{% block content %}
+{% include 'components/navbar.html' %}
+<div class="container mt-4">
+    <h1>Query Builder</h1>
+    <form method="GET" action="{% url 'query_builder:query_result' %}">
+    <div class="form-group">
+        <p class="text-danger">Not sure about the functionality of keyword thus not implemented.</p>
+        <label for="textInput">Keyword</label>
+        <input type="text" class="form-control" id="textInput" name="keyword">
+    </div>
+    <p class="text-success">City, state, year founded, industry and country filters are working.</p>
+    <div class="form-group">
+        <label for="dropdown1">City</label>
+        <input type="text" class="form-control" id="textInput1" name="city">
+    </div>
+    <div class="form-group">
+        <label for="dropdown2">State</label>
+        <input type="text" class="form-control" id="textInput2" name="state">
+    </div>
+    <div class="form-group">
+        <label for="dropdown3">Year Founded</label>
+        <select class="form-control" id="dropdown3" name="year_founded"><option value=""></option>
+            {% for year in year_founded %}
+            <option value="{{ year|num_to_string }}">{{ year|num_to_string }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="dropdown4">Industry</label>
+        <select class="form-control" id="dropdown4" name="industry">
+        	<option value=""></option>
+            {% for industry in industries %}
+            <option value="{{ industry|to_string }}">{{ industry|to_string|title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="dropdown5">Country</label>
+        <select class="form-control" id="dropdown5" name="country">
+        	<option value=""></option>
+            {% for country in countries %}
+            <option value="{{ country|to_string }}">{{ country|to_string|title}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <p class="text-danger">Not sure what functionality Employees(From) and Employees(To) will provide thus not implemented.</p>
+        <label for="textInput">Employees(From) </label>
+        <input type="number" class="form-control" id="textInput3" name="employee_count_from">
+    </div>
+    <div class="form-group">
+        <label for="textInput">Employees(To)</label>
+        <input type="number" class="form-control" id="textInput4" name="employee_count_to">
+    </div>
+    <!-- Buttons -->
+    <button type="submit" class="btn btn-success">Query Data</button>
+    <a href="{% url 'query_builder:query_builder' %}" type="button" class="btn btn-danger">Reset</a>
+    </form>
+</div>
+{% endblock content %}
