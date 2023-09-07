@@ -1,6 +1,6 @@
 # catalyst-count
 
-**For running the project.**
+For running the project.
 
 1. Create a virtual environment and activate it.
 2. Install all the dependencies using pip install -r requirements.txt
