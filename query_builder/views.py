@@ -5,9 +5,10 @@ from upload_data.models import CompanyModel
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 from django.core.exceptions import ValidationError
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class QueryBuilderView(TemplateView):
+class QueryBuilderView(LoginRequiredMixin, TemplateView):
 	template_name = 'query_builder.html'
 
 	def get_context_data(self, **kwargs):

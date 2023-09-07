@@ -4,10 +4,10 @@ from .forms import CreateNewUserForm
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView, CreateView, ModelFormMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
-class UserListView(ListView):
+class UserListView(LoginRequiredMixin, ListView):
 	model = CustomUser
 	paginate_by = 20
 	template_name = 'list_user.html'
@@ -20,14 +20,14 @@ class UserListView(ListView):
 
 
 
-class DeleteUserView(DeleteView):
+class DeleteUserView(LoginRequiredMixin, DeleteView):
 	model = CustomUser
 	template_name = 'delete_user.html'
 	success_url = reverse_lazy('user:list_user')
 
 
 
-class CreateNewUserView(CreateView, ModelFormMixin):
+class CreateNewUserView(LoginRequiredMixin, CreateView, ModelFormMixin):
 	template_name = 'signup_user.html'
 	form_class = CreateNewUserForm
 	success_url = reverse_lazy('user:list_user')
