@@ -6,10 +6,10 @@ For running the project.
 2. Install all the dependencies using pip install -r requirements.txt
 3. Create a .env file inside the main project app i.e catalyst_count.
 4. Inside .env file Provide django SECRET_KEY, and NAME, USER, PASSWORD, HOST and PORT for postgres.
-5. Make migrations using commands:
-  a. python manage.py makemigrations
-  b. python manage.py migrate
-7. Finally run the project using command python manage.py runserver.
+5. Make migrations using commands python manage.py makemigrations and python manage.py migrate.
+6. Configure and run RabbitMQ server.
+7. Run celery server using command celery -A catalyst_count woker -l INFO -P gevent.
+8. Finally run the project using command python manage.py runserver.
 
 
 
