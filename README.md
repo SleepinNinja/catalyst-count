@@ -1,6 +1,7 @@
 # catalyst-count
 
-For running the project.
+**For running the project.**
+
 1. Create a virtual environment and activate it.
 2. Install all the dependencies using pip install -r requirements.txt
 3. Create a .env file inside the main project app i.e catalyst_count.
@@ -11,7 +12,8 @@ For running the project.
 7. Finally run the project using command python manage.py runserver.
 
 
-API 
+
+**API **
 The url for getting the filtered company data is http://127.0.0.1:8000/api/query_builder/,
 This API only accepts GET request, we need to send filters in request body in json format as shown below.
 
