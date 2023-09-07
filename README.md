@@ -13,7 +13,7 @@
 
 
 
-**API **
+API
 The url for getting the filtered company data is http://127.0.0.1:8000/api/query_builder/,
 This API only accepts GET request, we need to send filters in request body in json format as shown below.
 
