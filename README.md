@@ -30,7 +30,7 @@ The list of filters are:
 The value for all these filters should be of type string.
 
 For a successful API call we need to pass alteast one filter.
-On a successfully request call number of matches, and serialized matching results are retuend with status code 200.
+On a successfully request call number of matches, and serialized matching results are returned with status code 200.
 ![image](https://github.com/SleepinNinja/catalyst-count/assets/88624644/b1846ae7-796e-4e55-901b-0176d261eeb7)
 
 If we don't pass any filter then status code 400 is returned.
